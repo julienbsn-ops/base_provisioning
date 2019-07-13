@@ -11,4 +11,4 @@ script:
   - molecule lint
   - molecule create
   - molecule converge
-  - molecule verify
+  # - molecule verify
