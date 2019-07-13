@@ -1,0 +1,25 @@
+---
+dependency:
+  name: infra tweaks
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: debian_base
+    image: alehaa/debian-systemd:stretch
+    command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      # - /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro
+    capabilities:
+      - SYS_ADMIN
+    privileged: false
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
