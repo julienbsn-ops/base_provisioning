@@ -1,2 +1,24 @@
 ---
 # tasks file for base_provisioning
+- name: Change root password
+  user:
+    name: root
+    password: "{{ root_passwd }}"
+
+- name: Update distro's repositories
+  apt:
+    update_cache: yes
+
+- name: Install needed packages
+  apt:
+    name: "{{ base_packages }}"
+    install_recommends: no
+
+- name: Remove useless packages from the cache
+  apt:
+    autoclean: yes
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes
+

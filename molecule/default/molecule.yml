@@ -1,6 +1,6 @@
 ---
 dependency:
-  name: infra tweaks
+  name: base_provisioning
 driver:
   name: docker
 lint:
@@ -14,7 +14,7 @@ platforms:
       # - /run/dbus/system_bus_socket:/run/dbus/system_bus_socket:ro
     capabilities:
       - SYS_ADMIN
-    privileged: false
+    privileged: True
 provisioner:
   name: ansible
   lint:

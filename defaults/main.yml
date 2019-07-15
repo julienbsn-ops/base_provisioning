@@ -1,2 +1,12 @@
 ---
 # defaults file for base_provisioning
+base_packages:
+  - vim
+  - htop
+  - secure-delete
+  - openssl
+  - git
+  - ufw
+  - fail2ban
+  - monit
+  - software-properties-common
